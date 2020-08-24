@@ -87,7 +87,7 @@ const Tree = () => {
                                                     <b>{heading}</b>
                                                 </span>
                                                 <br/>
-                                                <img src={image} height="80" width="80" />
+                                                <img src={image} alt={""} height="80" width="80" />
                                                 <div style={{fontSize:13}} >{subheading} </div>
                                             </center>
                                         </Paper>

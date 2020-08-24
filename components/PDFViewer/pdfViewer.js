@@ -9,7 +9,7 @@ const PdfViewer = (props) => {
     return (
         <div >
             <PDFViewer
-            scale={1.4}
+            scale={1.42}
             scaleStep={0.5}
             css={navCSS.customViewer}
             canvasCss={navCSS.customCanvas}

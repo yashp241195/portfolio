@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export const CustomPrevButton = props => {
     const { page, handlePrevClick } = props
-    if (page === 0) return <div />
+    if (page === 1) return <div />
 
     return (
         <h3
