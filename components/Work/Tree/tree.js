@@ -119,7 +119,10 @@ const Tree = () => {
 
                                 return(
                                     <ListItem
+                                    disabled={ info.disabled }
+
                                     style={{
+                                        marginBottom:20,
                                         background:(selectedIndex === index)?"yellow":"white", 
                                         border:(selectedIndex === index)?"1px solid":"white"}
                                     }

@@ -5,20 +5,20 @@ const WorkMap = {
             {
                 name : "Helplink",                
                 desc : " A network of help ",
-                imageUrl : "https://banner2.cleanpng.com/20180329/use/kisspng-logo-self-help-group-organization-business-service-learning-5abcc3f8cc32e0.3999135915223203768364.jpg"
-                ,pdfUrl:'Projects/metro.pdf'
+                imageUrl : "icons/helplink.jpg"
+                ,pdfUrl:'na.pdf'
             },
             {
                 name : "Dateme",                
                 desc : " Helps you to create and maintain relationship ",
-                imageUrl : "https://seeklogo.com/images/F/facebook-love-logo-0E36A58F96-seeklogo.com.png"
-                ,pdfUrl:'Projects/metro.pdf'
+                imageUrl : "icons/dateme.png"
+                ,pdfUrl:'na.pdf'
             },
             {
                 name : "Artisy",                
                 desc : " Connecting social media artist with clients (evolving idea into business - a complete practical case study) ",
-                imageUrl : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS4aJP-MNaeiJBAej6E5BhdqJcCAX7J1rTb6g&usqp=CAU"
-                ,pdfUrl:'Projects/metro.pdf'
+                imageUrl : "icons/artisy.jpeg"
+                ,pdfUrl:'na.pdf'
             },
             {
                 name : "कौन देख रहा है",                
@@ -29,14 +29,20 @@ const WorkMap = {
             {
                 name : "Delhi Metro Traveller",                
                 desc : " Helps you to take tour of delhi via metro ",
-                imageUrl : "https://lh3.googleusercontent.com/zXjoKNBQS2W8psAy1O-_4yyLVtP3pjvJguCyIOh7vNr_WL-H74xWyleg33QIvqB3hRU=s360-rw"
+                imageUrl : "icons/metro.jpg"
                 ,pdfUrl:'Projects/metro.pdf'
             },
             {
                 name : "Management system for fitness centre",                
                 desc : " Freelance : Requirement analysis to PHP based website ",
-                imageUrl : "https://image.flaticon.com/icons/svg/2833/2833614.svg",
+                imageUrl : "icons/freelance.jpg",
                 pdfUrl:'Projects/freelance.pdf'
+            },
+            {
+                name : "Others",                
+                desc : " projects done for fun and learning ",
+                imageUrl : "icons/others.png",
+                pdfUrl:'Projects/others.pdf'
             },
             
 
@@ -46,11 +52,24 @@ const WorkMap = {
 
         array:[
 
+            
             {
-                name:"Career Counselling",
-                subheading:"about the career about the career"
-                ,pdfUrl:'https://arxiv.org/pdf/quant-ph/0410100.pdf'
+                name:"Theoretical foundations for Dating App",
+                subheading:"Relationships from ancient to modern world context and role of love"
+                ,pdfUrl:'blogs/dating.pdf'
             },
+
+            {
+                name:"Theoretical foundations for Career Counselling App",
+                subheading:"Career from ancient to modern world context and role of invention"
+                ,pdfUrl:'blogs/career.pdf'
+            },
+            {
+                name:"Functional Requirements to Software System using Object Oriented Programming",
+                subheading:"explained using Java and banking system"
+                ,pdfUrl:'blogs/oop.pdf'
+            },
+
             
             
         ]

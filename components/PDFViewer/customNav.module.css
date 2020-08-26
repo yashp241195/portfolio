@@ -6,9 +6,9 @@
 }
 .customCanvas {
     height: 480px;
-    max-height: 600px;
+    max-height: 800px;
     min-width: 700px;
-    max-width: 900px;
+    max-width: 1200px;
     overflow: auto;
 }
 .customPrevBtn {

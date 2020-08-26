@@ -1,3 +1,3 @@
-const ResumeData = {resumeUrl:"Projects/metro.pdf"};
+const ResumeData = {resumeUrl:"resumeGuide.pdf"};
 
 export default ResumeData; 

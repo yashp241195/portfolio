@@ -1,3 +1,3 @@
-const QuestionData = {qaUrl:"Projects/kdrh.pdf"};
+const QuestionData = {qaUrl:"qa.pdf"};
 
 export default QuestionData; 
