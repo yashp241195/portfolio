@@ -1,12 +1,23 @@
-import React from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
+import {SharedVariables} from '../Shared/SharedVariables'
+import Button from '@material-ui/core/Button'
+import CloseOutlined from '@material-ui/icons/CloseOutlined'
 
 export const CustomPrevButton = props => {
     const { page, handlePrevClick } = props
-    if (page === 1) return <div />
+    
+    if (page === 1) {
+        return <div />
+    }
+
 
     return (
+        <>
+        <div style={{}}>
+        </div>
         <h3
+
             style={{
                 border:'1px solid',
                 padding:'5px',
@@ -20,6 +31,7 @@ export const CustomPrevButton = props => {
             onClick={handlePrevClick}>
             {"<-"} Previous page
         </h3>
+        </>
     )
 }
 CustomPrevButton.propTypes = {
@@ -29,7 +41,9 @@ CustomPrevButton.propTypes = {
 }
 
 export const CustomNextButton = props => {
+    
     const { page, pages, handleNextClick } = props
+    
     if (page === pages) return <div />
 
     return (
@@ -68,22 +82,43 @@ CustomPages.propTypes = {
 }
 
 const CustomNavigation = props => {
+    
     const { page, pages } = props
-
     const { handlePrevClick, handleNextClick } = props
+    
+    const {info,setInfo} = useContext(SharedVariables);
+
+    useEffect(() => {
+        console.log(`disabled changed ${JSON.stringify(info)}`);
+        return () => {
+        }
+    }, [info.disabled])
 
     return (
         <div className='customWrapper'>
+            <div style={{display: 'inline-block'}}>
+            <Button size="small" variant="contained" color="secondary" 
+        style={{ position:"absolute", fontSize:14,
+         marginLeft:0,marginTop:-460}} 
+
+        startIcon={<CloseOutlined />}
+
+        onClick={()=>{
+            console.log("closed.. redirect to Feedback");
+            setInfo({showSubmitQuery:true});
+        }} >   Close PDF </Button>
+        
+            </div>
             <CustomPrevButton
                 page={page}
                 pages={pages}
-                handlePrevClick={handlePrevClick}
+                handlePrevClick={()=> { setInfo({...info, disabled:true}); handlePrevClick();   }}
             />
             <CustomPages page={page} pages={pages} />
             <CustomNextButton
                 page={page}
                 pages={pages}
-                handleNextClick={handleNextClick}
+                handleNextClick={()=>{setInfo({...info, disabled:true}); handleNextClick();  }}
             />
         </div>
     )

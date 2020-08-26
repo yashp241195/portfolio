@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import List from '@material-ui/core/List'
@@ -9,25 +9,33 @@ import {SharedVariables} from '../../Shared/SharedVariables'
 import WorkMap from '../../DataStatic/WorkMap'
 
 
-
-
 const Tree = () => {
 
     const [ workType,setWorkType] = useState('project');
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedIndex, setSelectedIndex] = useState(-1);
     const {info,setInfo} = useContext(SharedVariables);
 
 
     const handleListItemClick = (event, index) => {
         const details  = (workType=="project")?WorkMap.project.array[index]: WorkMap.blog.array[index]; 
+        
         setInfo({
             type: workType,
             index: index,
             name: details.name,
-            obj: details
+            obj: details,
+            disabled: false
         });
+
         setSelectedIndex(index);
+
     };
+
+    useEffect(() => {
+        console.log("index changed ..");
+        return () => {
+        }
+    }, [info.index]);
 
     const handleChange = (event)=>{
         setSelectedIndex(0);
@@ -42,7 +50,7 @@ const Tree = () => {
         });
     }
 
-    
+
     return (
         <div >
                 <span style={{fontFamily:"monospace",color:"black"}}>
@@ -59,7 +67,9 @@ const Tree = () => {
                 </span>
                 <br/>
                 <br/>
-                <Grid container spacing={1} > 
+                <Grid container spacing={1}
+                
+                > 
                 <List component="nav" style={{
                     position: 'relative',
                     overflow: 'auto',
@@ -75,9 +85,14 @@ const Tree = () => {
 
                                 return(
                                     <ListItem
-                                    style={{ background:"white", border:(selectedIndex === index)?"1px solid":"white"}}
+                                    key={index}
+                                    style={{
+                                        marginBottom:20,
+                                        background:(selectedIndex === index)?"yellow":"white", 
+                                    border:(selectedIndex === index)?"1px solid":"white"}}
                                     button
                                     selected={ selectedIndex === index}
+                                    disabled={ info.disabled }
                                     onClick={(event) => handleListItemClick(event, index)}
                                     >
                                     <Grid xs={12}>
@@ -104,7 +119,10 @@ const Tree = () => {
 
                                 return(
                                     <ListItem
-                                    style={{ background:"white", border:(selectedIndex === index)?"1px solid":"white"}}
+                                    style={{
+                                        background:(selectedIndex === index)?"yellow":"white", 
+                                        border:(selectedIndex === index)?"1px solid":"white"}
+                                    }
                                     button
                                     selected={ selectedIndex === index}
                                     onClick={(event) => handleListItemClick(event, index)}

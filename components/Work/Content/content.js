@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext,useEffect} from 'react'
 import {SharedVariables} from '../../Shared/SharedVariables' 
 // import PdfViewer from '../../PDFViewer/pdfViewer'
 
@@ -11,6 +11,7 @@ import Project from '../../Project/Project'
 const content = () => {
 
     const {info,setInfo} = useContext(SharedVariables);
+
 
     return (
         <div>
@@ -35,7 +36,8 @@ const content = () => {
                 {(info.type == 'project' || info.type == 'blog')? 
                 <>
                 {/* {JSON.stringify(info,null,2)} */}
-                <Project vals={ [info.type, info.name, info.index, info.obj.pdfUrl]}></Project>
+                {}
+                <Project vals={ [info.type, info.name, info.index, info.hasOwnProperty('obj')?info.obj.pdfUrl:'Projects/freelance.pdf'] }></Project>
                 
                 </>
                 :

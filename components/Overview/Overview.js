@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useState,useContext,useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card';
@@ -27,7 +27,9 @@ import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 
 
+
 const useStyles =  makeStyles((theme)=>({
+    root:{},
     card : {
         height: '400px'
     },
@@ -40,8 +42,8 @@ const useStyles =  makeStyles((theme)=>({
       },
     profilepic:{
         padding: theme.spacing(1),
-        height:'180px',
-        width:'185px',
+        height:'100px',
+        width:'100px',
         borderRadius:'50%'
     }
 
@@ -83,22 +85,28 @@ const Overview = () => {
 
     const classes = useStyles();
 
+
     const profileInfo = {
         name : "Yash Pratap",
         profileImage: "https://greennewz.files.wordpress.com/2014/08/portrait_of_pablo_picasso_1908-1909_anonymous_photographer_musc3a9e_picasso_paris.jpg?w=381",
-        about : "Web Developer ",
+        about : "Software Engineer ",
         desc : 
             [   
-                {head : "Frontend", tech :"React JS, Next JS, Material UI, Redux JS, React Hooks"},
-                {head : "Backend", tech :"Node JS, Express JS, MongoDB, MySQL, Git, Docker"},
-                {head : "Testing", tech :"Mocha JS, Chai JS"},
+                {head : "Web (FullStack)", tech :"React JS, Next JS, Material UI, Redux JS, Hooks, Node JS, Express JS (REST API), MongoDB, MySQL, Git"},
+                {head : "Entrepreneurial", tech :"Product development (communication problems to information systems), historical understanding of software industry, human behaviour, civilisations and philosophy"},
+                {head : "Others ", tech :"Meditation (I use meditation to develop skills efficiently and understanding regarding human behaviour), Writing (English/Hindi), Mathematics, Story Telling, Typing, drawing "},
+                {head : "Others (Technical) ", tech :""},
+                {head : "(i) more frequently used ", tech :"UI/UX, Python, DS/Algo/DBMS, Testing "},
+                {head : "(ii) less frequently used ", tech :"Android, React Native, PHP, Java, C++, Selenium, ML/AI,Computer Graphics"},
+                {head : " ", tech :""},
+
             ]
         ,social:[
             {icon: <LinkedInIcon />, label:"LinkedIn", url :"https://www.linkedin.com/in/yash-pratap-90b6b9189/"},
             {icon: <GitHubIcon />, label:"Github", url :"https://github.com/yashp241195"},
             {icon: <HackerrankIcon />, label:"Hackerrank", url :"https://www.hackerrank.com/yashp241195?hr_r=1"},
-            {icon: <QuoraIcon />, label:"Quora", url :"https://www.quora.com/profile/Yash-Pratap-50"},
-            {icon: <InstagramIcon />, label:"Instagram", url :"https://www.instagram.com/yashp2411"},
+            // {icon: <QuoraIcon />, label:"Quora", url :"https://www.quora.com/profile/Yash-Pratap-50"},
+            // {icon: <InstagramIcon />, label:"Instagram", url :"https://www.instagram.com/yashp2411"},
 
         ],
         
@@ -113,22 +121,37 @@ const Overview = () => {
        
     const {info,setInfo} = useContext(SharedVariables);
 
+    
+    useEffect(() => {
+        console.log(`content changed .. index ${info.index} d : ${info.disabled} `);
+        return () => {
+            
+        }
+    }, [info.index]);
+    
+
     return (
         <div>
             <Grid className={classes.root} container spacing={1}>
-                <Grid className={classes.card} item xs={2}>
-                    <Card style={{height:540}} className={classes.paper}>
-                        <CardMedia
-                            className={classes.profilepic}
-                            component="img"
-                            alt={profileInfo.name}
-                            image={profileInfo.profileImage}
-                            title={profileInfo.name}
-                        />
+                <Grid style={{ marginLeft:-15}} className={classes.card} item xs={2}>
+                    <Card style={{height:540, width:230}} className={classes.paper}>
+                        <center>
+                            <CardMedia
+                                className={classes.profilepic}
+                                component="img"
+                                alt={profileInfo.name}
+                                image={profileInfo.profileImage}
+                                title={profileInfo.name}
+                            />
+                        </center>
                         <CardContent>
                             <Typography gutterBottom variant="h6" component="h2">
                                 <span style={{color:"black", fontFamily:"sans-serif", textDecoration: "none"}} >  
-                                    <center><b>{profileInfo.name}</b></center> 
+                                    <center>
+                                        <b>{profileInfo.name}</b>
+                                        <br/>
+                                        <b><span style={{fontSize:14}} >{profileInfo.about}</span></b>
+                                    </center> 
                                     {
                                         profileInfo.social.map((item,index)=>{
                                             return(
@@ -139,10 +162,11 @@ const Overview = () => {
                                             );
                                         })
                                     }
-                                    <b><span style={{fontSize:14}} >{profileInfo.about}</span></b>
+                                    <br/>  
+                                    <div style={{marginTop:10}} ></div>
 
                                     <Typography align='left' variant="body2">
-                                    <span style={{ fontSize:11}}>
+                                    <div style={{ overflow:'auto', height:300,  fontSize:11}}>
                                        {
                                         profileInfo.desc.map((item, index)=>{
                                            return (
@@ -154,17 +178,19 @@ const Overview = () => {
                                            );
                                         })
                                        }                                   
-                                    </span> 
+                                    </div> 
                                     </Typography>
                                 </span>
                                 <br/>
                             </Typography>                            
                         </CardContent>
+                        <div style={{marginTop:10}} ></div>
+
                     </Card>
                 </Grid>
                 
                 <Grid item xs={2}>
-                    <Card style={{height:90, color:"black", marginBottom:5}} className={classes.paper}>
+                    <Card style={{overflow: 'auto',height:90, color:"black", marginBottom:5}} className={classes.paper}>
                         <Button
                             style = {{width:"100%",textTransform: "none"}}
                             size="small"

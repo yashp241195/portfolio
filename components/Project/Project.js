@@ -4,7 +4,9 @@ import PdfViewer from '../PDFViewer/pdfViewer'
 
 const Project = (props) => {
 
-    const [type, name, index, pdfUrl] = props.vals
+
+    const [type, name, index, pdfUrl] = props.vals;
+
 
     return (
         <div>
