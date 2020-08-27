@@ -3,12 +3,49 @@ import PropTypes from 'prop-types'
 import {SharedVariables} from '../Shared/SharedVariables'
 import Button from '@material-ui/core/Button'
 import CloseOutlined from '@material-ui/icons/CloseOutlined'
+import ZoomInIc from '@material-ui/icons/ZoomIn'
+import ZoomOutIc from '@material-ui/icons/ZoomOut'
+
+export const ZoomIn = props =>{
+    
+    const {handleZoomIn} = props
+
+    return(
+        <Button
+        startIcon={<ZoomInIc />}
+        style={{ marginLeft:50, marginRight:20, display: 'inline-block',}}
+        onClick={ handleZoomIn}
+        size="small" variant="outlined" color="secondary" 
+        >
+            Zoom In   ++
+        </Button>
+    )
+}
+
+export const ZoomOut = props =>{
+    
+    const {handleZoomOut} = props
+
+    return(
+        <Button
+        startIcon={<ZoomOutIc />}
+
+        style={{ display: 'inline-block',}}
+        size="small" variant="outlined" 
+        color="secondary"
+         onClick={handleZoomOut}
+        >
+          Zoom Out  --
+        </Button>
+    )
+
+}
 
 export const CustomPrevButton = props => {
     const { page, handlePrevClick } = props
     
     if (page === 1) {
-        return <div />
+        return <div style={{display: 'inline-block',}} />
     }
 
 
@@ -44,7 +81,7 @@ export const CustomNextButton = props => {
     
     const { page, pages, handleNextClick } = props
     
-    if (page === pages) return <div />
+    if (page === pages) return <div style={{display: 'inline-block',}} />
 
     return (
         <h3
@@ -85,7 +122,11 @@ const CustomNavigation = props => {
     
     const { page, pages } = props
     const { handlePrevClick, handleNextClick } = props
+    const { handleZoomIn, handleZoomOut } = props
+
     
+    console.log(` navigation Props ${JSON.stringify(props)}`)
+
     const {info,setInfo} = useContext(SharedVariables);
 
     useEffect(() => {
@@ -120,6 +161,9 @@ const CustomNavigation = props => {
                 pages={pages}
                 handleNextClick={()=>{setInfo({...info, disabled:true}); handleNextClick();  }}
             />
+            <ZoomIn handleZoomIn={handleZoomIn} />
+            <ZoomOut handleZoomOut={handleZoomOut} />
+
         </div>
     )
 }
@@ -128,6 +172,8 @@ CustomNavigation.propTypes = {
     pages: PropTypes.number.isRequired,
     handlePrevClick: PropTypes.func.isRequired,
     handleNextClick: PropTypes.func.isRequired,
+    handleZoomIn: PropTypes.func.isRequired,
+    handleZoomOut: PropTypes.func.isRequired,
 }
 
 export default CustomNavigation;

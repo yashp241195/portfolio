@@ -2,8 +2,8 @@ import React from 'react'
 import PdfViewer from '../PDFViewer/pdfViewer'
 import QuestionData from '../DataStatic/QuestionsData'
 
-
 const Questions = () => {
+
     return (
         <div>
             <div style={{ position:"absolute", width:"63%"}}>
@@ -14,7 +14,7 @@ const Questions = () => {
                     <b>Question Answers</b>
                 </div>
             </div>
-            <PdfViewer pdfUrl={QuestionData.qaUrl} />
+            <PdfViewer width={1200} pdfUrl={QuestionData.qaUrl} />
         </div>
     )
 }

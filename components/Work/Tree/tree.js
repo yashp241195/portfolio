@@ -9,7 +9,7 @@ import {SharedVariables} from '../../Shared/SharedVariables'
 import WorkMap from '../../DataStatic/WorkMap'
 
 
-const Tree = () => {
+const Tree = (props) => {
 
     const [ workType,setWorkType] = useState('project');
     const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -50,6 +50,7 @@ const Tree = () => {
         });
     }
 
+    const isHorizontal = props.orientation === "Horizontal";
 
     return (
         <div >
@@ -66,14 +67,19 @@ const Tree = () => {
                     </Select>
                 </span>
                 <br/>
+                <p style={{color:'green',fontSize:12}}>{(info.disabled)?'*** Please !! click on "CLOSE PDF" (Pink colored button on the PDF Viewer screen) button to continue':''}</p>
                 <br/>
                 <Grid container spacing={1}
                 
                 > 
                 <List component="nav" style={{
+                    display: 'flex',
+                    flexDirection: (isHorizontal)?'row':'column',
                     position: 'relative',
                     overflow: 'auto',
-                    maxHeight: 400}}
+                    height:400,
+                    maxHeight: 400
+                }}
                     >
                     {
                         (workType == 'project')?
@@ -87,6 +93,8 @@ const Tree = () => {
                                     <ListItem
                                     key={index}
                                     style={{
+                                        width:(isHorizontal)?200:200,
+
                                         marginBottom:20,
                                         background:(selectedIndex === index)?"yellow":"white", 
                                     border:(selectedIndex === index)?"1px solid":"white"}}

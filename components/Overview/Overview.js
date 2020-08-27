@@ -26,17 +26,19 @@ import {SharedVariables} from '../Shared/SharedVariables'
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 
+import useWindowSize from '../CustomHooks/useWindowSize'
+
+import Modal from '@material-ui/core/Modal'
 
 
 const useStyles =  makeStyles((theme)=>({
     root:{},
     card : {
-        height: '400px'
+        height: '100%'
     },
     paper: {
         padding: theme.spacing(1),
         align:"center",
-        height:'380px',
         marginTop:'2px',
         color: theme.palette.text.secondary,
       },
@@ -92,13 +94,12 @@ const Overview = () => {
         about : "Software Engineer ",
         desc : 
             [   
-                {head : "Web (FullStack)", tech :"React JS, Next JS, Material UI, Redux JS, Hooks, Node JS, Express JS (REST API), MongoDB, MySQL, Git"},
-                {head : "Entrepreneurial", tech :"Product development (communication problems to information systems), historical understanding of software industry, human behaviour, civilisations and philosophy"},
-                {head : "Others ", tech :"Meditation (I use meditation to develop skills efficiently and understanding regarding human behaviour), Writing (English/Hindi), Mathematics, Story Telling, Typing, drawing "},
-                {head : "Others (Technical) ", tech :""},
+                {head : "1. Web (FullStack)", tech :"React JS, Next JS, Material UI, Redux JS, Hooks, Node JS, Express JS (REST API), MongoDB, MySQL, Git"},
+                {head : "2. Entrepreneurial", tech :"Product development (communication problems to information systems), historical understanding of software industry, human behaviour, civilisations and philosophy"},
+                {head : "3. Others ", tech :"Meditation (I use meditation to develop skills efficiently and deepening the understanding regarding human behaviour), Writing (English/Hindi), Mathematics, Story Telling, Typing, drawing "},
+                {head : "4. Others (Technical) ", tech :""},
                 {head : "(i) more frequently used ", tech :"UI/UX, Python, DS/Algo/DBMS, Testing "},
                 {head : "(ii) less frequently used ", tech :"Android, React Native, PHP, Java, C++, Selenium, ML/AI,Computer Graphics"},
-                {head : " ", tech :""},
 
             ]
         ,social:[
@@ -129,13 +130,22 @@ const Overview = () => {
         }
     }, [info.index]);
     
+    
+
+    const size = useWindowSize();
+
+    const [ModalOpen, setModalOpen] = useState(false);
+
 
     return (
         <div>
+            {( size.width > 1000)? 
+            <>
+             <>{console.log('Desktop')}</>    
             <Grid className={classes.root} container spacing={1}>
-                <Grid style={{ marginLeft:-15}} className={classes.card} item xs={2}>
-                    <Card style={{height:540, width:230}} className={classes.paper}>
-                        <center>
+                <Grid item  xs={2}  className={classes.card}  >
+                    <Grid item xs={12} >   
+                        <Card  className={classes.paper}>
                             <CardMedia
                                 className={classes.profilepic}
                                 component="img"
@@ -143,53 +153,48 @@ const Overview = () => {
                                 image={profileInfo.profileImage}
                                 title={profileInfo.name}
                             />
-                        </center>
-                        <CardContent>
-                            <Typography gutterBottom variant="h6" component="h2">
-                                <span style={{color:"black", fontFamily:"sans-serif", textDecoration: "none"}} >  
-                                    <center>
-                                        <b>{profileInfo.name}</b>
+                            <CardContent>
+                                <Typography gutterBottom variant="h6" component="h2">
+                                    <span style={{color:"black", fontFamily:"sans-serif", textDecoration: "none"}} >  
+                                            <b>{profileInfo.name}</b>
+                                            <br/>
+                                            <b><span style={{fontSize:14}} >{profileInfo.about}</span></b>
+                                            <br/>
+                                        {
+                                            profileInfo.social.map((item,index)=>{
+                                                return(
+                                                    <a key={index} style={{ fontSize:10, color:"gray",textDecoration: "none"}} 
+                                                    target="_blank" href={item.url}>
+                                                        <Chip size="small" avatar={item.icon} label={item.label} variant="outlined" />
+                                                    </a>
+                                                );
+                                            })
+                                        }
                                         <br/>
-                                        <b><span style={{fontSize:14}} >{profileInfo.about}</span></b>
-                                    </center> 
-                                    {
-                                        profileInfo.social.map((item,index)=>{
-                                            return(
-                                                <a key={index} style={{color:"gray",textDecoration: "none"}} 
-                                                target="_blank" href={item.url}>
-                                                    <Chip size="small" avatar={item.icon} label={item.label} variant="outlined" />
-                                                </a>
-                                            );
-                                        })
-                                    }
-                                    <br/>  
-                                    <div style={{marginTop:10}} ></div>
+                                        <br/>
+                                        <div style={{ overflow:'auto', height:size.height-460, padding:3,  fontSize:11}}>
+                                            {
+                                                profileInfo.desc.map((item, index)=>{
+                                                    return (
+                                                        <Typography gutterBottom key={index}>  
+                                                            <b><span style={{fontSize:12,fontFamily:"sans-serif"}}> {item.head}</span></b>
+                                                            <br/>
+                                                            <span style={{ fontSize:12}}>{item.tech}</span>
+                                                        </Typography>
+                                                    );
+                                                })
+                                            }                                   
+                                        </div> 
+                                    </span>
+                                    <br/>
+                                </Typography>                            
+                            </CardContent>
+                            <div style={{marginTop:10}} ></div>
 
-                                    <Typography align='left' variant="body2">
-                                    <div style={{ overflow:'auto', height:300,  fontSize:11}}>
-                                       {
-                                        profileInfo.desc.map((item, index)=>{
-                                           return (
-                                            <div key={index}>  
-                                                <b><span style={{fontSize:14,fontFamily:"monospace"}}>{item.head}</span></b>
-                                                <br/>
-                                                <span style={{fontSize:12}}>{item.tech}</span>
-                                           </div>
-                                           );
-                                        })
-                                       }                                   
-                                    </div> 
-                                    </Typography>
-                                </span>
-                                <br/>
-                            </Typography>                            
-                        </CardContent>
-                        <div style={{marginTop:10}} ></div>
-
-                    </Card>
+                        </Card>
+                    </Grid>
                 </Grid>
-                
-                <Grid item xs={2}>
+                <Grid item  xs={2} >
                     <Card style={{overflow: 'auto',height:90, color:"black", marginBottom:5}} className={classes.paper}>
                         <Button
                             style = {{width:"100%",textTransform: "none"}}
@@ -247,12 +252,12 @@ const Overview = () => {
                             <span style={{flexGrow:1}}></span>
                         </Button>
                     </Card>
-                    <Card style={{height:430,background:"white"}} className={classes.paper}>
+                    <Card style={{height:size.height-210,background:"white"}} className={classes.paper}>
                         <Tree></Tree>
                     </Card>
                 </Grid>
                 <Grid item xs={8}>
-                <Card style={{height:540}} className={classes.paper}>
+                    <Card style={{height:size.height-100}} className={classes.paper}>
                     <Content></Content>
                 </Card>
                 </Grid>
@@ -262,6 +267,219 @@ const Overview = () => {
                 </div>
                 </Grid>
             </Grid>
+            </>
+            :
+            <div>
+                {( size.width > 500)? 
+                <>
+                <Grid className={classes.root} container spacing={1}>
+                    <>{console.log('Tab')}</>
+                    <Grid item xs={5} >   
+                        <Card  className={classes.paper}>
+                            <CardMedia
+                                className={classes.profilepic}
+                                component="img"
+                                alt={profileInfo.name}
+                                image={profileInfo.profileImage}
+                                title={profileInfo.name}
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h6" component="h2">
+                                    <span style={{color:"black", fontFamily:"sans-serif", textDecoration: "none"}} >  
+                                            <b>{profileInfo.name}</b>
+                                            <br/>
+                                            <b><span style={{fontSize:14}} >{profileInfo.about}</span></b>
+                                            <br/>
+                                        {
+                                            profileInfo.social.map((item,index)=>{
+                                                return(
+                                                    <a key={index} style={{ fontSize:10, color:"gray",textDecoration: "none"}} 
+                                                    target="_blank" href={item.url}>
+                                                        <Chip size="small" avatar={item.icon} label={item.label} variant="outlined" />
+                                                    </a>
+                                                );
+                                            })
+                                        }
+                                        <br/>
+
+                                        <div style={{ overflow:'auto', height:200, padding:3,  fontSize:11}}>
+                                            {
+                                                profileInfo.desc.map((item, index)=>{
+                                                    return (
+                                                        <Typography gutterBottom key={index}>  
+                                                            <b><span style={{fontSize:12,fontFamily:"sans-serif"}}> {item.head}</span></b>
+                                                            <br/>
+                                                            <span style={{ fontSize:12}}>{item.tech}</span>
+                                                        </Typography>
+                                                    );
+                                                })
+                                            }                                   
+                                        </div> 
+
+
+                                        
+
+                                        <div style={{marginTop:10}} ></div>
+                                    </span>
+                                    <br/>
+                                </Typography>                            
+                            </CardContent>
+                            <div style={{marginTop:10}} ></div>
+
+                        </Card>
+                    </Grid>
+                    <Grid item  xs={7} >
+                    <Card style={{ overflow: 'auto',height:60, color:"black", marginBottom:5}} className={classes.paper}>
+                        <Button
+                            style = {{textTransform: "none"}}
+                            size="small"
+                            variant="outlined"
+                            color="gray"
+                            className={classes.button}
+
+                            onClick={()=>{
+                                setInfo({
+                                    showSubmitQuery:true,
+                                })
+                            }}
+
+                            endIcon={buttonGroup.contactButton.icon}
+                        >
+                            {buttonGroup.contactButton.label}
+                            <span style={{flexGrow:1}}></span>
+                        </Button>
+                        <Button
+                            style = {{textTransform: "none"}}
+                            size="small"
+                            variant="outlined"
+                            color="gray"
+                            className={classes.button}
+
+                            onClick={()=>{
+                                setInfo({
+                                    showQuestionAnswer:true,
+
+                                })
+                            }}
+
+                            endIcon={buttonGroup.responseButton.icon}
+                        >
+                            {buttonGroup.responseButton.label}
+                            <span style={{flexGrow:1}}></span>
+                        </Button>
+                        <Button
+                            style = {{textTransform: "none"}}
+                            size="small"
+                            variant="outlined"
+                            color="gray"
+                            className={classes.button}
+                            endIcon={buttonGroup.resumeButton.icon}
+                            onClick={()=>{
+                                setInfo({
+                                    showResume:true,
+                                    resumeUrl:""
+                                })
+                            }}
+                        >
+                            {buttonGroup.resumeButton.label}
+                            <span style={{flexGrow:1}}></span>
+                        </Button>
+                    </Card>
+                    <Card style={{height:400,background:"white"}} className={classes.paper}>
+                        <Tree orientation="Horizontal" ></Tree>
+                    </Card>
+                </Grid>
+                    <Grid item xs={12}>
+                        <Card style={{height:600}} className={classes.paper}>
+                            <Content></Content>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <div style={{height:20}} >
+                            <Footer></Footer>
+                        </div>
+                    </Grid>
+
+
+                </Grid>
+
+                
+                </>
+                :
+                <>
+                    <p style={{ fontSize:10, alignItems:'flex-end',color:'green'}}> {'*** Please rotate screen horizontally to view complete website '} </p>
+                    
+                    <Grid item xs={12} >   
+                        <Card  >
+                            <center>
+                            <CardMedia
+                                className={classes.profilepic}
+                                component="img"
+                                alt={profileInfo.name}
+                                image={profileInfo.profileImage}
+                                title={profileInfo.name}
+                            />
+                            <b>{profileInfo.name}</b>
+                            <br/>
+                            <b><span style={{fontSize:14}} >{profileInfo.about}</span></b>
+                            <br/>
+                            </center>
+                            <CardContent>
+                                <Typography gutterBottom variant="h6" component="h2">
+                                    <span style={{color:"black", fontFamily:"sans-serif", textDecoration: "none"}} >  
+                                            
+                                        {
+                                            profileInfo.social.map((item,index)=>{
+                                                return(
+                                                    <a key={index} style={{ fontSize:10, color:"gray",textDecoration: "none"}} 
+                                                    target="_blank" href={item.url}>
+                                                        <Chip size="small" avatar={item.icon} label={item.label} variant="outlined" />
+                                                    </a>
+                                                );
+                                            })
+                                        }
+                                        <br/>
+                                        
+                                        <br/>
+
+                                        <div style={{  padding:3,  fontSize:11}}>
+                                            {
+                                                profileInfo.desc.map((item, index)=>{
+                                                    return (
+                                                        <Typography gutterBottom key={index}>  
+                                                            <b><span style={{fontSize:12,fontFamily:"sans-serif"}}> {item.head}</span></b>
+                                                            <br/>
+                                                            <span style={{ fontSize:12}}>{item.tech}</span>
+                                                        </Typography>
+                                                    );
+                                                })
+                                            }                                   
+                                        </div> 
+
+
+                                        
+
+                                        <div style={{marginTop:10}} ></div>
+                                    </span>
+                                    <br/>
+                                </Typography>                            
+                            </CardContent>
+                            <div style={{marginTop:10}} ></div>
+                            <Grid item xs={12}>
+                                <div style={{height:40,marginTop:20}} >
+                                    <Footer></Footer>
+                                </div>
+                            </Grid>
+                        </Card>
+                    </Grid>
+                    
+                    
+                    
+                            
+                </>
+                }
+            </div>
+            } 
         </div>
     )
 }

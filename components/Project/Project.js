@@ -1,7 +1,6 @@
 import React from 'react'
 import PdfViewer from '../PDFViewer/pdfViewer'
 
-
 const Project = (props) => {
 
 
@@ -28,7 +27,7 @@ const Project = (props) => {
                     <b>{name}</b>
                 </div>
             </div>
-            <PdfViewer pdfUrl={pdfUrl} />
+            <PdfViewer width={1200} pdfUrl={pdfUrl} />
         </div>
     )
 }

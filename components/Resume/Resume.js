@@ -4,6 +4,8 @@ import ResumeData from '../DataStatic/ResumeData'
 
 const Resume = () => {
 
+
+
     return (
         <div>
             <div style={{ position:"absolute", width:"63%"}}>
@@ -14,7 +16,7 @@ const Resume = () => {
                     <b>Resume Yash Pratap</b>
                 </div>
             </div>
-            <PdfViewer pdfUrl={ResumeData.resumeUrl} />
+            <PdfViewer width={1200} pdfUrl={ResumeData.resumeUrl} />
         </div>
     )
 }
