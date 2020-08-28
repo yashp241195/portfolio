@@ -90,7 +90,7 @@ const Overview = () => {
 
     const profileInfo = {
         name : "Yash Pratap",
-        profileImage: "https://greennewz.files.wordpress.com/2014/08/portrait_of_pablo_picasso_1908-1909_anonymous_photographer_musc3a9e_picasso_paris.jpg?w=381",
+        profileImage: "icons/profilepic.png",
         about : "Software Engineer ",
         desc : 
             [   
