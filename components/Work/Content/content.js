@@ -37,7 +37,7 @@ const content = () => {
                 <>
                 {/* {JSON.stringify(info,null,2)} */}
                 {}
-                <Project vals={ [info.type, info.name, info.index, info.hasOwnProperty('obj')?info.obj.pdfUrl:'Projects/freelance.pdf'] }></Project>
+                <Project vals={ [info.type, info.name, info.index, info.obj.pdfUrl, info.obj.buttonGroup ] }></Project>
                 
                 </>
                 :

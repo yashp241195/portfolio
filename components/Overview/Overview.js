@@ -134,12 +134,11 @@ const Overview = () => {
 
     const size = useWindowSize();
 
-    const [ModalOpen, setModalOpen] = useState(false);
 
 
     return (
         <div>
-            {( size.width > 1000)? 
+            {( size.width > 1100)? 
             <>
              <>{console.log('Desktop')}</>    
             <Grid className={classes.root} container spacing={1}>
@@ -197,7 +196,7 @@ const Overview = () => {
                 <Grid item  xs={2} >
                     <Card style={{overflow: 'auto',height:90, color:"black", marginBottom:5}} className={classes.paper}>
                         <Button
-                            style = {{width:"100%",textTransform: "none"}}
+                            style = {{background:(info.showSubmitQuery)?'#1cff03':'white' ,width:"100%",textTransform: "none"}}
                             size="small"
                             variant="outlined"
                             color="gray"
@@ -216,7 +215,7 @@ const Overview = () => {
                         </Button>
                         <br/>
                         <Button
-                            style = {{width:"100%",textTransform: "none"}}
+                            style = {{background:(info.showQuestionAnswer)?'#1cff03':'white',width:"100%",textTransform: "none"}}
                             size="small"
                             variant="outlined"
                             color="gray"
@@ -235,7 +234,7 @@ const Overview = () => {
                         </Button>
                         <br/>
                         <Button
-                            style = {{width:"100%",textTransform: "none"}}
+                            style = {{background:(info.showResume)?'#1cff03':'white',width:"100%",textTransform: "none"}}
                             size="small"
                             variant="outlined"
                             color="gray"
@@ -272,8 +271,8 @@ const Overview = () => {
             <div>
                 {( size.width > 500)? 
                 <>
+                <>{console.log('Tab')}</>  
                 <Grid className={classes.root} container spacing={1}>
-                    <>{console.log('Tab')}</>
                     <Grid item xs={5} >   
                         <Card  className={classes.paper}>
                             <CardMedia
@@ -331,7 +330,7 @@ const Overview = () => {
                     <Grid item  xs={7} >
                     <Card style={{ overflow: 'auto',height:60, color:"black", marginBottom:5}} className={classes.paper}>
                         <Button
-                            style = {{textTransform: "none"}}
+                            style = {{background:(info.showSubmitQuery)?'#1cff03':'white',textTransform: "none"}}
                             size="small"
                             variant="outlined"
                             color="gray"
@@ -349,7 +348,7 @@ const Overview = () => {
                             <span style={{flexGrow:1}}></span>
                         </Button>
                         <Button
-                            style = {{textTransform: "none"}}
+                            style = {{background:(info.showQuestionAnswer)?'#1cff03':'white',textTransform: "none"}}
                             size="small"
                             variant="outlined"
                             color="gray"
@@ -368,7 +367,7 @@ const Overview = () => {
                             <span style={{flexGrow:1}}></span>
                         </Button>
                         <Button
-                            style = {{textTransform: "none"}}
+                            style = {{background:(info.showResume)?'#1cff03':'white',textTransform: "none"}}
                             size="small"
                             variant="outlined"
                             color="gray"
@@ -384,6 +383,7 @@ const Overview = () => {
                             {buttonGroup.resumeButton.label}
                             <span style={{flexGrow:1}}></span>
                         </Button>
+                        <p style={{fontSize:10 ,color:'green'}}> ** Please scroll to view selected page </p>
                     </Card>
                     <Card style={{height:400,background:"white"}} className={classes.paper}>
                         <Tree orientation="Horizontal" ></Tree>
@@ -407,6 +407,8 @@ const Overview = () => {
                 </>
                 :
                 <>
+                    <>{console.log('Mobile')}</>
+
                     <p style={{ fontSize:10, alignItems:'flex-end',color:'green'}}> {'*** Please rotate screen horizontally to view complete website '} </p>
                     
                     <Grid item xs={12} >   

@@ -77,8 +77,8 @@ const Tree = (props) => {
                     flexDirection: (isHorizontal)?'row':'column',
                     position: 'relative',
                     overflow: 'auto',
-                    height:400,
-                    maxHeight: 400
+                    width:'100%',
+                    height: 400,
                 }}
                     >
                     {
@@ -93,7 +93,6 @@ const Tree = (props) => {
                                     <ListItem
                                     key={index}
                                     style={{
-                                        width:(isHorizontal)?200:200,
 
                                         marginBottom:20,
                                         background:(selectedIndex === index)?"yellow":"white", 
@@ -111,7 +110,7 @@ const Tree = (props) => {
                                                 </span>
                                                 <br/>
                                                 <img src={image} alt={""} height="80" width="80" />
-                                                <div style={{fontSize:13}} >{subheading} </div>
+                                                <div style={{fontSize:12}} >{subheading} </div>
                                             </center>
                                         </Paper>
                                     </Grid>
@@ -155,6 +154,7 @@ const Tree = (props) => {
                             })
 
                     }
+                    <br/>
                     </List>
                 </Grid>
 
