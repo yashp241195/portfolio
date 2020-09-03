@@ -6,7 +6,7 @@ const WorkMap = {
                 name : "Helplink",                
                 desc : " A network of help ",
                 imageUrl : "icons/helplink.jpg"
-                ,pdfUrl:'na.pdf',
+                ,pdfUrl:'Projects/helplink.pdf',
                 buttonGroup:[]
             },
             {
@@ -26,7 +26,7 @@ const WorkMap = {
             {
                 name : "कौन देख रहा है",                
                 desc : " Book on meditation available in (Text/Audio) ",
-                imageUrl : ""
+                imageUrl : "icons/kdrh.jpg"
                 ,pdfUrl:'Projects/kdrh.pdf',
                 buttonGroup:[
                     {title:'Amazon Kindle',url:'https://www.amazon.in/Kaun-dekh-raha-hai-discovery-ebook/dp/B089CX5YR1/ref=cm_cr_arp_d_product_top?ie=UTF8'},
