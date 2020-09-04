@@ -6,6 +6,7 @@ import CloseOutlined from '@material-ui/icons/CloseOutlined'
 import ZoomInIc from '@material-ui/icons/ZoomIn'
 import ZoomOutIc from '@material-ui/icons/ZoomOut'
 
+
 export const ZoomIn = props =>{
     
     const {handleZoomIn} = props
@@ -138,17 +139,17 @@ const CustomNavigation = props => {
     return (
         <div className='customWrapper'>
             <div style={{display: 'inline-block'}}>
-            <Button size="small" variant="contained" color="secondary" 
-        style={{ position:"absolute", fontSize:14,
-         marginLeft:0,marginTop:-460}} 
+                <Button size="small" variant="contained" color="secondary" 
+                    style={{ position:"absolute", fontSize:14,
+                    marginLeft:0,marginTop:-455}} 
 
-        startIcon={<CloseOutlined />}
+                    startIcon={<CloseOutlined />}
 
-        onClick={()=>{
-            console.log("closed.. redirect to Feedback");
-            setInfo({showSubmitQuery:true});
-        }} >   Close PDF </Button>
-        
+                    onClick={()=>{
+                        console.log("closed.. redirect to Feedback");
+                        setInfo({showSubmitQuery:true});
+                    }} > Close PDF </Button>
+                
             </div>
             <CustomPrevButton
                 page={page}
