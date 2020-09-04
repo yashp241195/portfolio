@@ -13,7 +13,7 @@ const WorkMap = {
                 name : "Dateme",                
                 desc : " Helps you to create and maintain relationship ",
                 imageUrl : "icons/dateme.png"
-                ,pdfUrl:'na.pdf',
+                ,pdfUrl:'Projects/dateme.pdf',
                 buttonGroup:[]
             },
             {
