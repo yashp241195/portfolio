@@ -21,7 +21,7 @@ const PdfViewer = (props) => {
                     <Button size="small" variant="contained"  
                         style={{ background:"dodgerblue", color:"white", 
                         position:"absolute", fontSize:14,
-                        marginLeft:0,marginTop:5}} 
+                        marginLeft:0,marginTop:95}} 
 
                         startIcon={<RefreshIcon />}
                         > Refresh </Button>
