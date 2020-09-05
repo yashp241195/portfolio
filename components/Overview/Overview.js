@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-
+import Paper from '@material-ui/core/Paper'
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -273,122 +273,71 @@ const Overview = () => {
                 <>
                 <>{console.log('Tab')}</>  
                 <Grid className={classes.root} container spacing={1}>
-                    <Grid item xs={5} >   
-                        <Card  className={classes.paper}>
-                            <CardMedia
-                                className={classes.profilepic}
-                                component="img"
-                                alt={profileInfo.name}
-                                image={profileInfo.profileImage}
-                                title={profileInfo.name}
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h6" component="h2">
-                                    <span style={{color:"black", fontFamily:"sans-serif", textDecoration: "none"}} >  
-                                            <b>{profileInfo.name}</b>
-                                            <br/>
-                                            <b><span style={{fontSize:14}} >{profileInfo.about}</span></b>
-                                            <br/>
-                                        {
-                                            profileInfo.social.map((item,index)=>{
-                                                return(
-                                                    <a key={index} style={{ fontSize:10, color:"gray",textDecoration: "none"}} 
-                                                    target="_blank" href={item.url}>
-                                                        <Chip size="small" avatar={item.icon} label={item.label} variant="outlined" />
-                                                    </a>
-                                                );
-                                            })
-                                        }
-                                        <br/>
+                    
+                    
 
-                                        <div style={{ overflow:'auto', height:200, padding:3,  fontSize:11}}>
-                                            {
-                                                profileInfo.desc.map((item, index)=>{
-                                                    return (
-                                                        <Typography gutterBottom key={index}>  
-                                                            <b><span style={{fontSize:12,fontFamily:"sans-serif"}}> {item.head}</span></b>
-                                                            <br/>
-                                                            <span style={{ fontSize:12}}>{item.tech}</span>
-                                                        </Typography>
-                                                    );
-                                                })
-                                            }                                   
-                                        </div> 
+                    <Grid item  xs={12} >
+                        <Card style={{ overflow: 'auto',height:60, color:"black", marginBottom:5}} className={classes.paper}>
+                            <Button
+                                style = {{background:(info.showSubmitQuery)?'#1cff03':'white',textTransform: "none"}}
+                                size="small"
+                                variant="outlined"
+                                color="gray"
+                                className={classes.button}
 
+                                onClick={()=>{
+                                    setInfo({
+                                        showSubmitQuery:true,
+                                    })
+                                }}
 
-                                        
+                                endIcon={buttonGroup.contactButton.icon}
+                            >
+                                {buttonGroup.contactButton.label}
+                                <span style={{flexGrow:1}}></span>
+                            </Button>
+                            <Button
+                                style = {{background:(info.showQuestionAnswer)?'#1cff03':'white',textTransform: "none"}}
+                                size="small"
+                                variant="outlined"
+                                color="gray"
+                                className={classes.button}
 
-                                        <div style={{marginTop:10}} ></div>
-                                    </span>
-                                    <br/>
-                                </Typography>                            
-                            </CardContent>
-                            <div style={{marginTop:10}} ></div>
+                                onClick={()=>{
+                                    setInfo({
+                                        showQuestionAnswer:true,
 
+                                    })
+                                }}
+
+                                endIcon={buttonGroup.responseButton.icon}
+                            >
+                                {buttonGroup.responseButton.label}
+                                <span style={{flexGrow:1}}></span>
+                            </Button>
+                            <Button
+                                style = {{background:(info.showResume)?'#1cff03':'white',textTransform: "none"}}
+                                size="small"
+                                variant="outlined"
+                                color="gray"
+                                className={classes.button}
+                                endIcon={buttonGroup.resumeButton.icon}
+                                onClick={()=>{
+                                    setInfo({
+                                        showResume:true,
+                                        resumeUrl:""
+                                    })
+                                }}
+                            >
+                                {buttonGroup.resumeButton.label}
+                                <span style={{flexGrow:1}}></span>
+                            </Button>
+                            <p style={{fontSize:10 ,color:'green'}}> ** Please scroll to view selected page </p>
+                        </Card>
+                        <Card style={{height:400,background:"white"}} className={classes.paper}>
+                            <Tree orientation="Horizontal" ></Tree>
                         </Card>
                     </Grid>
-                    <Grid item  xs={7} >
-                    <Card style={{ overflow: 'auto',height:60, color:"black", marginBottom:5}} className={classes.paper}>
-                        <Button
-                            style = {{background:(info.showSubmitQuery)?'#1cff03':'white',textTransform: "none"}}
-                            size="small"
-                            variant="outlined"
-                            color="gray"
-                            className={classes.button}
-
-                            onClick={()=>{
-                                setInfo({
-                                    showSubmitQuery:true,
-                                })
-                            }}
-
-                            endIcon={buttonGroup.contactButton.icon}
-                        >
-                            {buttonGroup.contactButton.label}
-                            <span style={{flexGrow:1}}></span>
-                        </Button>
-                        <Button
-                            style = {{background:(info.showQuestionAnswer)?'#1cff03':'white',textTransform: "none"}}
-                            size="small"
-                            variant="outlined"
-                            color="gray"
-                            className={classes.button}
-
-                            onClick={()=>{
-                                setInfo({
-                                    showQuestionAnswer:true,
-
-                                })
-                            }}
-
-                            endIcon={buttonGroup.responseButton.icon}
-                        >
-                            {buttonGroup.responseButton.label}
-                            <span style={{flexGrow:1}}></span>
-                        </Button>
-                        <Button
-                            style = {{background:(info.showResume)?'#1cff03':'white',textTransform: "none"}}
-                            size="small"
-                            variant="outlined"
-                            color="gray"
-                            className={classes.button}
-                            endIcon={buttonGroup.resumeButton.icon}
-                            onClick={()=>{
-                                setInfo({
-                                    showResume:true,
-                                    resumeUrl:""
-                                })
-                            }}
-                        >
-                            {buttonGroup.resumeButton.label}
-                            <span style={{flexGrow:1}}></span>
-                        </Button>
-                        <p style={{fontSize:10 ,color:'green'}}> ** Please scroll to view selected page </p>
-                    </Card>
-                    <Card style={{height:400,background:"white"}} className={classes.paper}>
-                        <Tree orientation="Horizontal" ></Tree>
-                    </Card>
-                </Grid>
                     <Grid item xs={12}>
                         <Card style={{height:600}} className={classes.paper}>
                             <Content></Content>
@@ -399,11 +348,7 @@ const Overview = () => {
                             <Footer></Footer>
                         </div>
                     </Grid>
-
-
                 </Grid>
-
-                
                 </>
                 :
                 <>
