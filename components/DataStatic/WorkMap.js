@@ -20,7 +20,7 @@ const WorkMap = {
                 name : "Artisy",                
                 desc : " Connecting social media artist with clients (evolving idea into business - a complete practical case study) ",
                 imageUrl : "icons/artisy.jpeg"
-                ,pdfUrl:'na.pdf',
+                ,pdfUrl:'Projects/art.pdf',
                 buttonGroup:[]
             },
             {
