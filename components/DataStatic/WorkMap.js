@@ -3,6 +3,13 @@ const WorkMap = {
     project : {
         array :[
             {
+                name : "Artificial Intelligence driven Social Information Systems",                
+                desc : "hasFreedom = (interdependencies operated with love and care)?Yes:No",
+                imageUrl : "na.jpg"
+                ,pdfUrl:'Projects/research.pdf',
+                buttonGroup:[]
+            },
+            {
                 name : "Helplink",                
                 desc : " A network of help ",
                 imageUrl : "icons/helplink.jpg"
@@ -66,7 +73,6 @@ const WorkMap = {
 
         array:[
 
-            
             {
                 name:"Theoretical foundations for Dating App",
                 subheading:"Relationships from ancient to modern world context and role of love"
