@@ -4,10 +4,13 @@ const WorkMap = {
         array :[
             {
                 name : "Artificial Intelligence driven Social Information Systems",                
-                desc : "hasFreedom = (interdependencies operated with love and care)?Yes:No",
+                desc : "Solving social science problems using information technology and artificial intelligence",
                 imageUrl : "na.jpg"
                 ,pdfUrl:'Projects/research.pdf',
-                buttonGroup:[]
+                buttonGroup:[
+                    {title:'Amazon Kindle',url:'https://www.amazon.com/dp/B08HM9B55F/'},
+ 
+                ]
             },
             {
                 name : "Helplink",                

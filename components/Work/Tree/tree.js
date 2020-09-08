@@ -109,7 +109,11 @@ const Tree = (props) => {
                                                     <b>{heading}</b>
                                                 </span>
                                                 <br/>
-                                                <img src={image} alt={""} height="80" width="80" />
+                                                {
+                                                    (image != 'na.jpg')?
+                                                    <img src={image} alt={""} height="80" width="80" />:''
+                                                }
+                                                
                                                 <div style={{fontSize:12}} >{subheading} </div>
                                             </center>
                                         </Paper>
