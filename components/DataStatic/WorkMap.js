@@ -17,21 +17,33 @@ const WorkMap = {
                 desc : " A network of help ",
                 imageUrl : "icons/helplink.jpg"
                 ,pdfUrl:'Projects/helplink.pdf',
-                buttonGroup:[]
+                buttonGroup:[
+                    {title:'web',url:'https://helplink.vercel.app'},
+                    {title:'Github',url:'https://github.com/yashp241195/helplink'},
+
+                ]
             },
             {
                 name : "Dateme",                
                 desc : " Helps you to create and maintain relationship ",
                 imageUrl : "icons/dateme.png"
                 ,pdfUrl:'Projects/dateme.pdf',
-                buttonGroup:[]
+                buttonGroup:[
+                    {title:'web',url:'https://datemee.vercel.app'},
+                    {title:'Github',url:'https://github.com/yashp241195/dateme'},
+
+                ]
             },
             {
                 name : "Artisy",                
                 desc : " Connecting social media artist with clients (evolving idea into business - a complete practical case study) ",
                 imageUrl : "icons/artisy.jpeg"
                 ,pdfUrl:'Projects/art.pdf',
-                buttonGroup:[]
+                buttonGroup:[
+                    {title:'web',url:'https://artistt.vercel.app'},
+                    {title:'Github',url:'https://github.com/yashp241195/artist'},
+
+                ]
             },
             {
                 name : "कौन देख रहा है",                
