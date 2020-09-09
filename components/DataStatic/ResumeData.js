@@ -1,3 +1,3 @@
-const ResumeData = {resumeUrl:"resumeGuide.pdf"};
+const ResumeData = {resumeUrl:"resume.pdf"};
 
 export default ResumeData; 
