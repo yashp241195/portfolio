@@ -94,11 +94,12 @@ const Overview = () => {
         about : "Software Engineer ",
         desc : 
             [   
-                {head : "1. Web (FullStack)", tech :"React JS, Next JS, Material UI, Redux JS, Hooks, Node JS, Express JS (REST API), MongoDB, MySQL, Git"},
-                {head : "2. Entrepreneurial", tech :"Product development (communication problems to information systems), historical understanding of software industry, human behaviour, civilisations and philosophy"},
-                {head : "3. Others ", tech :"Meditation (I use meditation to develop skills efficiently and deepening the understanding regarding human behaviour), Writing (English/Hindi), Mathematics, Story Telling, Typing, drawing "},
-                {head : "4. Others (Technical) ", tech :""},
-                {head : "(i) more frequently used ", tech :"UI/UX, Python, DS/Algo/DBMS, Testing "},
+                {head : "1. Web (FullStack)", tech :"React JS (with Hooks), Next JS(frontend), Material UI, Express JS (MVC-REST API backend)"},
+                {head : "2. Android", tech :"Android (with MVVM), Kotlin, Retrofit, Room, KodeIn(DI)"},
+                {head : "3. Entrepreneurial", tech :"Product development (communication problems to information systems), historical understanding of software industry, human behaviour, civilisations and philosophy"},
+                {head : "4. Others ", tech :"Meditation (I use meditation to develop skills efficiently and also to deepen my understanding regarding human behaviour), Writing (English/Hindi), Mathematics, Story Telling, Typing, drawing "},
+                {head : "5. Others (Technical) ", tech :""},
+                {head : "(i) more frequently used ", tech :"UI/UX, Python, DS/Algo/RDBMS, Testing "},
                 {head : "(ii) less frequently used ", tech :"Android, React Native, PHP, Java, C++, Selenium, ML/AI,Computer Graphics"},
 
             ]
