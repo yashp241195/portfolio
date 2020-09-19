@@ -88,6 +88,17 @@ const WorkMap = {
 
         array:[
 
+
+            {
+                name:"User centric system to navigation routes",
+                subheading:"DSAEE business idea method to navigation routes of web/mobile app"
+                ,pdfUrl:'blogs/usercentric.pdf',
+                buttonGroup:[
+                ]
+
+
+            },
+
             {
                 name:"Theoretical foundations for Dating App",
                 subheading:"Relationships from ancient to modern world context and role of love"

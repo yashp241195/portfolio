@@ -147,7 +147,7 @@ const Tree = (props) => {
                                                     <span style={{fontSize:14, fontFamily:"monospace"}}><b>{heading}</b></span>
                                                     <br/>
                                                     <br/>
-                                                    <div>
+                                                    <div style={{fontSize:12}} >
                                                         {subheading}
                                                     </div>
                                                 </center>
