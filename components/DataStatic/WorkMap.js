@@ -88,6 +88,16 @@ const WorkMap = {
 
         array:[
 
+            {
+                name:"Complete process of building right software product from arbitrary problem",
+                subheading:"Define Search Alter Explore Evaluate -> Select Suggest Transact Combine & Cluster -> Software Architecture -> UI/UX Design"
+                ,pdfUrl:'blogs/buildproduct.pdf',
+                buttonGroup:[
+                ]
+
+
+            },
+
 
             {
                 name:"User centric system to navigation routes",
