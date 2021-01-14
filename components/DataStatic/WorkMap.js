@@ -2,6 +2,7 @@ const WorkMap = {
     
     project : {
         array :[
+            // leave the first
             // {
             //     name : "Artificial Intelligence driven Social Information Systems",                
             //     desc : "Solving social science problems using information technology and artificial intelligence",
